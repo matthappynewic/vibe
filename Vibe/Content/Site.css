@@ -1,0 +1,143 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-size: 1366px 768px;
+    background-repeat: no-repeat;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.background{
+    position:fixed;
+    width:1366px;
+    height:768px;
+}
+.login
+{
+    color:#eee;
+    /*background:#222;
+    opacity:0.8;*/
+
+}
+h2
+{
+    color:#eee;
+}
+#loginForm
+{
+    border:0px;
+}
+#loginForm .btn{
+    width:50%;
+}
+#loginForm p > a{
+    color:#eee;
+    text-decoration:underline;
+}
+#loginForm hr{
+    width:100%;
+}
+.navbar
+{
+    background:transparent;
+    border:0px;
+    text-transform:uppercase;
+    
+}
+.navbar-nav li > a{
+    color:#ddd !important;
+    opacity:1;
+    font-weight:500;
+    font-size:18px;
+    letter-spacing:2px;
+}
+.navbar-nav li > a:hover
+{
+    color:#fff !important;
+    transform:scale(1.1);
+    transition:0.25s;
+}
+.search
+{
+    width:50%;
+    margin-top:15px;
+}
+.search input[type=text]
+{
+    width:50%;
+    background-color:transparent;
+    color:#eee;
+    padding:5px;
+}
+.songList
+{
+    /*border: 1px solid white;*/
+    border-radius:10px;
+    background:transparent;
+    overflow:auto;
+    display:table;
+    padding:10px;
+    width:90%;
+    margin-left:5%;
+}
+.song
+{
+    width:120px;
+    max-width:120px;
+    height:100px;
+    background:#ded;
+    border:0px;
+    border-radius:6px;
+    margin:5px;
+    padding:5px;
+    display:block;
+    float:left;
+    overflow:hidden;    
+   
+}
+.song .glyphicon-play
+{
+    padding:4px;
+    transform:scale(2);
+}
+.song p{
+    color:#333;
+    text-align:center;
+    padding:3px;
+
+}
+footer{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+
+
+
+@media screen and (max-width:900px)
+{
+    .search
+    {
+        width:100%;
+    }
+}

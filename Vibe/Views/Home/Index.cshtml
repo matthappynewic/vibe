@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<center>
+    <form class="search" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+</center>
+<div class="">
+    <div class="songList" data-bind="foreach: songs">
+        <div class="song">
+            <p data-bind="text: Name"></p>
+            <p data-bind="text: Artist"></p>
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/knockout.js"></script>
+<script type="text/javascript" src="~/Scripts/Home/home.js"></script>
+<script type="text/javascript">
+    document.body.style.backgroundImage = "url('../Content/img/guitarist.jpg')";
+</script>
