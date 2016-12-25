@@ -20,14 +20,17 @@
                 }
             });
         }
-
+        
         //player
+        self.song = ko.observable("Resources/good_feeling.mp3");
         self.volume = ko.observable(100);
         self.isPlaying = ko.observable(false);
         self.play = function () {
+            document.getElementById('audioPlayer').play();
             self.isPlaying(true);
         }
         self.pause = function () {
+            document.getElementById('audioPlayer').pause();
             self.isPlaying(false);
         }
         self.muted = function () {
@@ -39,7 +42,14 @@
         self.loudVolume = function () {
             return self.volume() >= 50;
         }
-
+        self.selectSong = function(el)
+        {
+            self.song(el.FilePath);
+            document.getElementById('audioPlayer').src = self.song();
+            document.getElementById('audioPlayer').load();
+            self.play();
+        }
+        
     }
     ko.applyBindings(new ViewModel());
 })(ko);
