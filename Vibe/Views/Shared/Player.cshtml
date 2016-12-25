@@ -1,0 +1,24 @@
+﻿<div class="songBar">
+    <input type="range" id="songTime" value="0" min="0" max="100">
+</div>
+<div class="player-back">
+    <div class="player">
+        <div class="volume-icons">
+            <span class="glyphicon glyphicon-volume-off" aria-hidden="true" data-bind="visible: muted()"></span>
+            <span class="glyphicon glyphicon-volume-down" aria-hidden="true" data-bind="visible: lowVolume()"></span>
+            <span class="glyphicon glyphicon-volume-up" aria-hidden="true" data-bind="visible: loudVolume()"></span>
+            <div id="volume"></div>
+        </div>
+        <div class="main-controlls">
+            <center>
+                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-play" aria-hidden="true" data-bind="visible: !isPlaying(),click: play()"></span>
+                <span class="glyphicon glyphicon-pause" aria-hidden="true" data-bind="visible: isPlaying(), click: pause()"></span>
+                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+            </center>
+        </div>
+        <div class="songName">
+
+        </div>
+    </div>
+</div>

@@ -2,24 +2,30 @@
     ViewBag.Title = "Home Page";
 }
 
-<center>
-    <form class="search" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-    </form>
-</center>
-<div class="">
-    <div class="songList" data-bind="foreach: songs">
-        <div class="song">
-            <p data-bind="text: Name"></p>
-            <p data-bind="text: Artist"></p>
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-        </div>
+
+<form class="search" role="search" data-bind="submit: search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" data-bind="value: searchText">
     </div>
+</form>
+
+<div class="playlist">
+    <table class="table table-hover">
+        <thead>
+            <tr><th>Name</th><th>Artist</th><th>Album</th><th>Length</th></tr>
+        </thead>
+        <tbody data-bind="foreach: songs">
+            <tr>
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Artist"></td>
+                <td data-bind="text: Album"></td>
+                <td data-bind="text: Length"></td>
+
+            </tr>
+        </tbody>
+    </table>
 </div>
-<script type="text/javascript" src="~/Scripts/knockout.js"></script>
-<script type="text/javascript" src="~/Scripts/Home/home.js"></script>
 <script type="text/javascript">
-    document.body.style.backgroundImage = "url('../Content/img/guitarist.jpg')";
+    document.body.style.backgroundImage = "url('../Content/img/home.jpg')";
 </script>
+    
