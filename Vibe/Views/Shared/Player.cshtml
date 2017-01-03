@@ -1,24 +1,28 @@
-﻿<audio style="display:none" id="audioPlayer" controls">
+﻿<audio buffered style="display:none" id="audioPlayer" controls">
     <source data-bind="attr: {src: song}" type="audio/mp3">
 </audio>
 <div class="player-back">
+    <div id="songProgress" class="songProgress">
+
+    </div>
     <div class="player">
         <div class="volume-icons">
             <span class="glyphicon glyphicon-volume-off" aria-hidden="true" data-bind="visible: muted()"></span>
             <span class="glyphicon glyphicon-volume-down" aria-hidden="true" data-bind="visible: lowVolume()"></span>
             <span class="glyphicon glyphicon-volume-up" aria-hidden="true" data-bind="visible: loudVolume()"></span>
-            <div id="volume"></div>
+            <div id="volumeSlider"><span><em></em></span></div>
         </div>
         <div class="main-controlls">
             <center>
-                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-play" aria-hidden="true" data-bind="visible: !isPlaying(),click: play()"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true" data-bind="visible: isPlaying(), click: pause()"></span>
-                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-step-backward" aria-hidden="true" data-bind="click: backward"></span>
+                <span class="glyphicon glyphicon-play" aria-hidden="true" data-bind="visible: !isPlaying(),click: play"></span>
+                <span class="glyphicon glyphicon-pause" aria-hidden="true" data-bind="visible: isPlaying(), click: pause"></span>
+                <span class="glyphicon glyphicon-step-forward" aria-hidden="true" data-bind="click: forward"></span>
             </center>
         </div>
-        <div class="songName">
-
+        <div class="songDetails">
+            @*<h3 data-bind="text: song().Name"></h3><span> - </span>
+            <p data-bind="text: song().Artist"></p>*@
         </div>
     </div>
 </div>

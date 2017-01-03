@@ -6,6 +6,9 @@
     <title>Vibe</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/jquery-ui.css"/>
+    <link rel="stylesheet" href="~/Content/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui.theme.min.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,8 +44,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>   
     <script type="text/javascript" src="~/Scripts/knockout.js"></script>
     <script type="text/javascript" src="~/Scripts/Home/home.js"></script>
-    <script type="text/javascript" src="~/Scripts/common.js"></script>    
+    <script type="text/javascript" src="~/Scripts/common.js"></script>     
 </body>
 </html>

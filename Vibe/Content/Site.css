@@ -161,6 +161,11 @@ h2
 .playlist table > tbody > tr:last-child hover{
     border-radius: 5px !important;
 }
+.playlist table > tbody > tr
+{
+    cursor:pointer;
+    cursor:hand;
+}
 
 /*** PLAYER ***/
 .player-back{
@@ -181,6 +186,8 @@ h2
     min-height:60px;
     height:auto;
     background: transparent;
+    display:block;
+    float:left;
 }
 .glyphicon
 {
@@ -203,15 +210,17 @@ h2
     float:left;
     width:33%;
 }
-.volume-icons input[type=range]
+.volume-icons .glyphicon
+{
+    margin-left:20px;
+}
+.volume-icons > input[type=range]
 {
     color:#333;
     padding:5px;
-    margin:10px;
     width:200px;
     height:20px;
-    transform:rotate(90);
-    
+    margin-top:15px;
 }
 .main-controlls
 {
@@ -244,4 +253,38 @@ h2
     display:block;
     float:left;
     top:-10px !important;
+}
+.songDetails h3, p{
+    display:inline-block;
+}
+.songDetails p{
+    font-size:20px;
+    color:#333;
+    opacity:1;
+    z-index:3;
+}
+#volumeSlider
+{
+    margin-left:5px;
+    background:#333;
+    display:inline-block;
+    width:30%;
+    min-width:66px;
+    height:8px;
+}
+#volumeSlider .ui-slider-handle
+{
+    border-radius:50%;
+    border:2px solid #333;
+}
+#songProgress{
+    background:#333;
+    border-radius:0px;
+    border:0px;
+}
+#songProgress .ui-slider-handle {
+    height:25px;
+    width:25px;
+    border-radius:50%;
+    border:2px solid #333;
 }

@@ -12,6 +12,8 @@ namespace Vibe.Models
         public string Artist { get; set; }
         public string Album { get; set; }
         public string Length { get; set; }
+        public string ImagePath { get; set; }
+
         public string FilePath { get; set; }
     }
 }
