@@ -4,6 +4,7 @@
 (function (ko) {
     function ViewModel()
     {
+        var player;
         self.songs = ko.observableArray();
         self.searchText = ko.observable();
         self.search = function () {
@@ -26,20 +27,20 @@
         self.volume = ko.observable(100);
         self.isPlaying = ko.observable(false);
         self.play = function () {
-            document.getElementById('audioPlayer').play();
+            player.play();
             self.isPlaying(true);
         }
         self.pause = function () {
-            document.getElementById('audioPlayer').pause();
+            player.pause();
             self.isPlaying(false);
         }
         self.forward = function () {
-            if (document.getElementById('audioPlayer').currentTime < document.getElementById('audioPlayer').duration - 10)
-                    document.getElementById('audioPlayer').currentTime += 10;
+            if (player.currentTime < player.duration - 10)
+                    player.currentTime += 10;
         }
         self.backward = function () {
-            if (document.getElementById('audioPlayer').currentTime > 10)
-                    document.getElementById('audioPlayer').currentTime -= 10;
+            if (player.currentTime > 10)
+                    player.currentTime -= 10;
         }
         self.muted = function () {
             return self.volume() == 0;
@@ -50,15 +51,16 @@
         self.loudVolume = function () {
             return self.volume() >= 50;
         }
+        self.times = ko.observable("");
         self.selectSong = function(el)
         {
             self.song(el);
-            document.getElementById('audioPlayer').src = self.song().FilePath;
-            document.getElementById('audioPlayer').load();
-            //document.getElementById('songProgress').attr({"max":self.song().Length});
+            player.src = self.song().FilePath;
+            player.load();
             self.play();
         }
         $(document).ready(function () {
+            player = document.getElementById('audioPlayer');
             $("#volumeSlider").slider({
                 value: 100,
                 min: 0,
@@ -67,11 +69,11 @@
                 animate: true,
                 slide: function (event, ui) {
                     self.volume(ui.value);
-                    document.getElementById('audioPlayer').volume = ui.value / 100;
+                    player.volume = ui.value / 100;
                 },
                 stop: function (event, ui) {
                     self.volume(ui.value);
-                    document.getElementById('audioPlayer').volume = ui.value / 100;
+                    player.volume = ui.value / 100;
                 }
             });
             $("#songProgress").slider({
@@ -81,13 +83,27 @@
                 step: 1,
                 animate: true,
                 slide: function (event, ui) {
-                    document.getElementById('audioPlayer').currentTime = Math.round(ui.value / 100 * document.getElementById('audioPlayer').duration);
+                    player.currentTime = Math.round(ui.value / 100 * player.duration);
                 },
                 stop: function (event, ui) {
-                    document.getElementById('audioPlayer').currentTime = Math.round(ui.value / 100 * document.getElementById('audioPlayer').duration);
+                    player.currentTime = Math.round(ui.value / 100 * player.duration);
                 }
             });
+            var progressbar = $("#progressBar");
+            var loadedBar = $("#loadedBar");
+            player.ontimeupdate = function () {
+                $("#progressBar").css({ "width": "" + Math.round(100 / player.duration * player.currentTime) + "%" });
+                $("#loadedBar").css({ "width": "" + Math.round(100 / player.duration * player.buffered.end(player.buffered.length - 1)) + "%" });
+                $("#songProgress").slider("value", Math.round(100 / player.duration * player.currentTime));
+                console.log(player.currentTime + "//" + player.duration);
+                self.times(convertSecToMin(player.currentTime) + " / " + convertSecToMin(player.duration));
+            }
         });
+        var convertSecToMin = function(sec){
+            var minutes = Math.floor(sec / 60);
+            var seconds = sec - minutes * 60;
+            return "" + Math.round(minutes) + ":" + Math.round(seconds);
+        }
     } 
     ko.applyBindings(new ViewModel());
 })(ko);

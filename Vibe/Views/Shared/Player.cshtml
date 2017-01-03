@@ -1,9 +1,10 @@
-﻿<audio buffered style="display:none" id="audioPlayer" controls">
+﻿<audio buffered style="display:none" id="audioPlayer" controls preload="metadata" loop">
     <source data-bind="attr: {src: song}" type="audio/mp3">
 </audio>
 <div class="player-back">
     <div id="songProgress" class="songProgress">
-
+        <div id="progressBar"></div>
+        <div id="loadedBar"></div>
     </div>
     <div class="player">
         <div class="volume-icons">
@@ -11,6 +12,7 @@
             <span class="glyphicon glyphicon-volume-down" aria-hidden="true" data-bind="visible: lowVolume()"></span>
             <span class="glyphicon glyphicon-volume-up" aria-hidden="true" data-bind="visible: loudVolume()"></span>
             <div id="volumeSlider"><span><em></em></span></div>
+            <p data-bind="text: times"></p>
         </div>
         <div class="main-controlls">
             <center>
@@ -21,8 +23,8 @@
             </center>
         </div>
         <div class="songDetails">
-            @*<h3 data-bind="text: song().Name"></h3><span> - </span>
-            <p data-bind="text: song().Artist"></p>*@
+            <h3 data-bind="text: song().Name"></h3><span> - </span>
+            <p data-bind="text: song().Artist"></p>
         </div>
     </div>
 </div>
