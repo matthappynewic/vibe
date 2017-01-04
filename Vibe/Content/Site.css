@@ -68,7 +68,6 @@ h2
     background:transparent;
     border:0px;
     text-transform:uppercase;
-    
 }
 .navbar-header h1{
     color:#fff;
@@ -145,6 +144,7 @@ h2
 
 /*** Table Styles **/
 .playlist table{
+
     opacity:0.88;
     background:#fff;
     border-radius:5px;

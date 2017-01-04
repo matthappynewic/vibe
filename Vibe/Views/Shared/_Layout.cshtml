@@ -24,8 +24,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li><a>My songs</a></li>
-                    <li><a>Playlists</a></li>
+                    <li>@Html.ActionLink("My Songs", "Index", "MySongs")</li>
+                    <li>@Html.ActionLink("Playlists", "Index", "Playlists")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
